@@ -80,8 +80,8 @@ export const ProModel = ({ name }: Props) => {
                 <p className="text-muted-foreground">/year</p>
               </TabsContent>
             </div>
-            {proFeatures.map((feature) => (
-              <div className="flex items-center my-2">
+            {proFeatures.map((feature, index) => (
+              <div className="flex items-center my-2" key={index}>
                 <Check className="mr-2 text-muted-foreground" />
                 {feature}
               </div>
