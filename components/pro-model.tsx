@@ -34,9 +34,12 @@ export const ProModel = ({ name }: Props) => {
   const onClick = async () => {
     try {
       setLoading(true);
-      await refetch();
+      console.log(paymentMode);
+      const res = await refetch();
 
-      window.location.href = paymentUrl || settingsUrl;
+      if (res.status === "success") {
+        window.location.href = res.data || settingsUrl;
+      }
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
